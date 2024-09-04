@@ -9,7 +9,7 @@ import axios from 'axios'
 const App = () => {
   const queryClient = useQueryClient()
   const newAnecdoteMutation = useMutation({ mutationFn: createAnecdote })
-   const updateAnecdoteMutation = useMutation(updateAnecdote, {
+   const updateAnecdoteMutation = useMutation({mutationFn: updateAnecdote, 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['anecdotes']})
     },
